@@ -26,5 +26,8 @@ namespace KnightsTravel
         public const byte STARTING_ROW = 0;
         public const byte STARTING_COLUMN = 0;
         public const sbyte POSITION_NOT_YET_VISITED = -1;
+
+        // For application insights
+        public const string APPLICATION_INSIGHTS_KEY = "add-key-here";
     }
 }

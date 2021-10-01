@@ -8,8 +8,16 @@ namespace KnightsTravel
         [STAThread]
         public static void Main()
         {
+#if ENABLE_APPLICATION_INSIGHTS
+            var telemetryClient = ApplicationInsightsHelper.GenerateApplicationInsightsService(Settings.APPLICATION_INSIGHTS_KEY);
+#endif
+
             SolveKnightsTravel(Settings.CHESS_BOARD_ROWS, Settings.CHESS_BOARD_COLUMNS, Settings.STARTING_ROW, Settings.STARTING_COLUMN, Settings.PERMISSABLE_MOVES);
             Console.ReadLine();
+
+#if ENABLE_APPLICATION_INSIGHTS
+            telemetryClient.Flush();
+#endif
         }
 
         /// <summary>
